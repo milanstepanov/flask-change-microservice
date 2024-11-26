@@ -1,28 +1,30 @@
+"""Change application.
+"""
+
 from flask import Flask
 from flask import jsonify
+
 app = Flask(__name__)
 
+
 def change(amount):
+    """Converts an amount provided in dollars to the change in quarters, dims, nickels
+    and pennies"""
     # calculate the resultant change and store the result (res)
     res = []
-    coins = [1, 5, 10, 25] # value of pennies, nickels, dims, quarters
-    coin_lookup = {
-        25: "quarters", 
-        10: "dims",
-        5: "nickels",
-        1: "pennies"
-    }
+    coins = [1, 5, 10, 25]  # value of pennies, nickels, dims, quarters
+    coin_lookup = {25: "quarters", 10: "dims", 5: "nickels", 1: "pennies"}
 
     # divide the amount*100 (the amount in cents) by a coin value
     # record the number of coins that evenly divide and the remainder
 
     coin = coins.pop()
-    num, rem = divmod(int(amount*100), coin)
+    num, rem = divmod(int(amount * 100), coin)
     # append the coin type and number of coins that had no remainder
     res.append({num: coin_lookup[coin]})
 
     # while there is still some remainder, continue adding coins to the result
-    while rem>0:
+    while rem > 0:
         coin = coins.pop()
         num, rem = divmod(rem, coin)
         if num:
@@ -32,20 +34,21 @@ def change(amount):
     return res
 
 
-@app.route('/')
+@app.route("/")
 def hello():
     """Return a friendly HTTP freeting."""
     print("I am inside hello world")
-    return 'Hello World! I can make change at route: /change'
+    return "Hello World! I can make change at route: /change"
 
-@app.route('/change/<dollar>/<cents>')
+
+@app.route("/change/<dollar>/<cents>")
 def changeroute(dollar, cents):
+    """Define URL to trigger change functionality."""
     print(f"Make change for {dollar}.{cents}")
     amount = f"{dollar}.{cents}"
     result = change(float(amount))
     return jsonify(result)
 
 
-
-if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=8080, debug=True)
+if __name__ == "__main__":
+    app.run(host="127.0.0.1", port=8080, debug=True)
