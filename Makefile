@@ -1,6 +1,6 @@
 install:
-	python3 -m venv ~/.fcm && source ~/.fcm
-	python3 -m pip install -r requirements.txt
+	pip install --upgrage pip &&\
+		pip install -r requirements.txt
 
 lint:
 	pylint *.py
@@ -15,4 +15,4 @@ run:
 	python3 app.py
 
 all:
-	install test
+	install lint test
