@@ -17,6 +17,9 @@ format:
 run:
 	docker run -p 5000:5000 flask-change
 
+run-kube:
+	kubectl apply -f kube-change.yaml
+
 invoke:
 	curl http://0.0.0.0:5000/change/1/34
 
