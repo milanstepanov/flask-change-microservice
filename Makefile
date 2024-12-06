@@ -20,6 +20,9 @@ run:
 run-kube:
 	kubectl apply -f kube-change.yaml
 
+stop-kube:
+	kubectl delete deployment change-python
+
 invoke:
 	curl http://0.0.0.0:5000/change/1/34
 

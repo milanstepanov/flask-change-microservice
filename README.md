@@ -4,7 +4,7 @@
 
 **Lab Title**:
     
-    Building small Flask microservice that makes change.
+    Building small Flask microservice that makes change. More details [here](https://github.com/noahgift/flask-change-microservice?tab=readme-ov-file#invoke-endpoint).
 
 ## Invoke Endpoint
 
@@ -17,6 +17,26 @@
 - Run it
 
     `python app.py`
+
+- Invoke it. Options include `curl`, `Postman`, or  `httpie`.
+    
+    `make invoke`
+
+### curl
+
+    curl http://127.0.0.1:8080/change/1/34
+
+### [httpie](https://httpie.io/docs#installation)
+
+    http 127.0.0.1:8080/change/1/34
+
+### [Postman](https://www.postman.com/)
+
+### Requests
+
+    The [Python requests library](https://requests.readthedocs.io/en/latest/user/quickstart/) allows you to invoke a request as a "one-liner" or a script.
+
+    python -c "import requests;r=requests.get('http://127.0.0.1:8080/change/1/34');print(r.json())"
 
 ## Run Kubernetes Locally
 
@@ -41,3 +61,8 @@ or
 - Check operatbility by invoking the endpoint
 
     `make invoke`.
+
+- To delete Kubernetes deployment run
+
+    `make stop-kube`
+

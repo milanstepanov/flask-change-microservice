@@ -50,5 +50,16 @@ def changeroute(dollar, cents):
     return jsonify(result)
 
 
+@app.route("/change/100/<dollar>/<cents>")
+def change100route(dollar, cents):
+    """Define URL to trigger scaled change functionality. The input change is
+    multiplied by 100."""
+    amount = float(f"{dollar}.{cents}") * 100
+    print(f"This is the {change} x 100")
+
+    result = change(amount)
+    return jsonify(result)
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
