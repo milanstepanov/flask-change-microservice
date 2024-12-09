@@ -34,7 +34,7 @@ Building small Flask microservice that makes change. More details [here](https:/
 
 ### Requests
 
-    The [Python requests library](https://requests.readthedocs.io/en/latest/user/quickstart/) allows you to invoke a request as a "one-liner" or a script.
+The [Python requests library](https://requests.readthedocs.io/en/latest/user/quickstart/) allows you to invoke a request as a "one-liner" or a script.
 
     python -c "import requests;r=requests.get('http://127.0.0.1:8080/change/1/34');print(r.json())"
 
