@@ -45,6 +45,7 @@ def hello():
 def changeroute(dollar, cents):
     """Define URL to trigger change functionality."""
     print(f"Make change for {dollar}.{cents}")
+    # TODO: amount not computed correctly. 1 cent must be provided as '01' !
     amount = f"{dollar}.{cents}"
     result = change(float(amount))
     return jsonify(result)

@@ -4,7 +4,7 @@
 
 **Lab Title**:
     
-    Building small Flask microservice that makes change. More details [here](https://github.com/noahgift/flask-change-microservice?tab=readme-ov-file#invoke-endpoint).
+Building small Flask microservice that makes change. More details [here](https://github.com/noahgift/flask-change-microservice?tab=readme-ov-file#invoke-endpoint).
 
 ## Invoke Endpoint
 
